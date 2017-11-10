@@ -1,7 +1,7 @@
 /**
  * Created by Anton on 09.11.2017.
  */
-public class StringCalculatorBuilder {
+public class StringBuilder {
 
 
 

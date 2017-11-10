@@ -64,7 +64,7 @@ public class Calculator {
         Calculator calculator =new Calculator();
         String task= calculator.getTask();
 
-        StringParser stringParser=new StringParser(StringCalculatorBuilder.buildNoInnerBracketString(task));
+        StringParser stringParser=new StringParser(StringBuilder.buildNoInnerBracketString(task));
         double v=calculateIt(stringParser.numberArray,stringParser.operations);
         System.out.println("RESULT:"+v);
 
