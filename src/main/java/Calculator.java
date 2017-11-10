@@ -19,6 +19,7 @@ public class Calculator {
         return expression;
     }
 
+    //todo do not change collections passed as method parameters. Use defensive copies instead (you can google this pattern)
     public static double calculateIt(ArrayList<Double> numberArray,ArrayList<String> operations){
         double result=0;
 
@@ -68,6 +69,7 @@ public class Calculator {
         double v=calculateIt(stringParser.numberArray,stringParser.operations);
         System.out.println("RESULT:"+v);
 
+        //todo make it run until user want to exit. e.g. print "type task to calculate or exit to exit" after every result
         // (((6+2*5)-(2*2-1))-2)*10
 
 

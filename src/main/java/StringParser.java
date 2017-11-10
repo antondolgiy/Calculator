@@ -11,6 +11,8 @@ public class StringParser {
     ArrayList<Double> numberArray =new ArrayList();
     ArrayList<String> operations =new ArrayList();
 
+    //todo Your StringParser class is broken
+    //todo
     StringParser(String s){
         parseString(s);
     }
@@ -21,6 +23,7 @@ public class StringParser {
         String []numbers=pattern.split(s);
         List<String> arlist= Arrays.asList(numbers);
 
+        //todo try to rearrange code to be aligned. also good practice is to use {} for every block (ifs, loops, etc.)
         for(String st:arlist){
             if(!st.isEmpty())
             numberArray.add(Double.valueOf(st));

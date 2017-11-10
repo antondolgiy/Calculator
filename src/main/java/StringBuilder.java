@@ -19,6 +19,7 @@ public class StringBuilder {
             result+="";
                String inDaBraket=buildNoInnerBracketString(s);
                StringParser parser=new StringParser(inDaBraket);
+               //todo again hide inner collections. delegate calls or make defensive copies
                result+=Double.toString(Calculator.calculateIt(parser.numberArray, parser.operations));
         }
 
@@ -39,6 +40,7 @@ public class StringBuilder {
             }
             if(i<s.length()-1&&s.charAt(i)=='('){
                 noBracketString+=buildStringInBrackets(s.substring(i+1, bracketFinder.brackets.get(i)));
+                //todo redo like bracketFinder.getBracketWithIndex(i). Hide inner 'brackets' map
                 i=bracketFinder.brackets.get(i)+1;
             }
         }
