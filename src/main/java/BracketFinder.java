@@ -12,6 +12,7 @@ public class BracketFinder {
         findAllBrackets(s);
     }
 
+    //todo this method can be inlined without any harm =)
     public  void findAllBrackets(String s) {
         Stack<Integer> stack = new Stack();
 
@@ -26,5 +27,6 @@ public class BracketFinder {
         }
     }
 
+    //todo here create necessary methods for put and get from 'this.brackets' map. Field should be private
 
 }
