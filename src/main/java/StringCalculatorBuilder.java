@@ -11,7 +11,7 @@ public class StringCalculatorBuilder {
 
         if(!s.contains("(")){
             StringParser parser=new StringParser(s);
-            result+=Double.toString(StringCalculator.calculateIt(parser.numberArray,parser.operations));
+            result+=Double.toString(Calculator.calculateIt(parser.numberArray, parser.operations));
         }
 
 
@@ -19,7 +19,7 @@ public class StringCalculatorBuilder {
             result+="";
                String inDaBraket=buildNoInnerBracketString(s);
                StringParser parser=new StringParser(inDaBraket);
-               result+=Double.toString(StringCalculator.calculateIt(parser.numberArray,parser.operations));
+               result+=Double.toString(Calculator.calculateIt(parser.numberArray, parser.operations));
         }
 
         return result;

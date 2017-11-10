@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * Created by Anton on 26.10.2017.
  */
-public class StringCalculator {
+public class Calculator {
     BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
 
     String getTask(){
@@ -61,8 +61,8 @@ public class StringCalculator {
 
     public static void main(String[] args) {
 
-        StringCalculator stringCalculator=new StringCalculator();
-        String task=stringCalculator.getTask();
+        Calculator calculator =new Calculator();
+        String task= calculator.getTask();
 
         StringParser stringParser=new StringParser(StringCalculatorBuilder.buildNoInnerBracketString(task));
         double v=calculateIt(stringParser.numberArray,stringParser.operations);
