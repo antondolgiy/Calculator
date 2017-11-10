@@ -69,13 +69,7 @@ public class Calculator {
 
         Calculator calculator =new Calculator();
         calculator.getAndProcessTask();
-        //String task= calculator.getTask();
 
-        //StringParser stringParser=new StringParser(StringBuilder.buildNoInnerBracketString(task));
-        //double v=calculateIt(stringParser.numberArray,stringParser.operations);
-        //System.out.println("RESULT:"+v);
-
-        // (((6+2*5)-(2*2-1))-2)*10
 
 
 
