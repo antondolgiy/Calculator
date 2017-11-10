@@ -9,14 +9,19 @@ import java.util.ArrayList;
 public class Calculator {
     BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
 
-    String getTask(){
-        System.out.println("type task to calculate");
+    void getAndProcessTask(){
+        System.out.println("type task to calculate or 'E' to exit");
         String expression=null;
         try{
             expression=reader.readLine();}
         catch (IOException e){e.printStackTrace();}
 
-        return expression;
+        if (expression.equals("E")){return;}
+
+        StringParser stringParser=new StringParser(StringBuilder.buildNoInnerBracketString(expression));
+        double v=calculateIt(stringParser.numberArray,stringParser.operations);
+        System.out.println("RESULT:"+v);
+        getAndProcessTask();
     }
 
     public static double calculateIt(ArrayList<Double> numberArray,ArrayList<String> operations){
@@ -62,13 +67,15 @@ public class Calculator {
     public static void main(String[] args) {
 
         Calculator calculator =new Calculator();
-        String task= calculator.getTask();
+        calculator.getAndProcessTask();
+        //String task= calculator.getTask();
 
-        StringParser stringParser=new StringParser(StringBuilder.buildNoInnerBracketString(task));
-        double v=calculateIt(stringParser.numberArray,stringParser.operations);
-        System.out.println("RESULT:"+v);
+        //StringParser stringParser=new StringParser(StringBuilder.buildNoInnerBracketString(task));
+        //double v=calculateIt(stringParser.numberArray,stringParser.operations);
+        //System.out.println("RESULT:"+v);
 
         // (((6+2*5)-(2*2-1))-2)*10
+
 
 
     }
