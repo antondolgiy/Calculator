@@ -10,13 +10,14 @@ public class Calculator {
     BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
 
     void getAndProcessTask(){
-        System.out.println("type task to calculate or 'E' to exit");
+        System.out.println("type task to calculate or 'e' to exit");
         String expression=null;
         try{
-            expression=reader.readLine();}
+            expression=reader.readLine();
+        }
         catch (IOException e){e.printStackTrace();}
 
-        if (expression.equals("E")){return;}
+        if (expression.equals("e")){return;}
 
         StringParser stringParser=new StringParser(StringBuilder.buildNoInnerBracketString(expression));
         double v=calculateIt(stringParser.numberArray,stringParser.operations);
