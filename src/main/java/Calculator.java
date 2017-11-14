@@ -10,26 +10,35 @@ public class Calculator {
     BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
 
     void getAndProcessTask(){
-        System.out.println("type task to calculate or 'e' to exit");
-        String expression=null;
-        try{
-            expression=reader.readLine();
+        while (true) {
+            System.out.println("type task to calculate or 'e' to exit");
+            String expression = null;
+            try {
+                expression = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            if (expression.equals("e")) {
+                return;
+            }
+
+            StringParser stringParser = new StringParser(StringBuilder.buildNoInnerBracketString(expression));
+            double v = calculateIt(stringParser.getNumberArray(), stringParser.getOperations());
+            System.out.println("RESULT:" + v);
         }
-        catch (IOException e){e.printStackTrace();}
-
-        if (expression.equals("e")){return;}
-
-        StringParser stringParser=new StringParser(StringBuilder.buildNoInnerBracketString(expression));
-        double v=calculateIt(stringParser.numberArray,stringParser.operations);
-        System.out.println("RESULT:"+v);
-        getAndProcessTask();
     }
 
     //todo do not change collections passed as method parameters. Use defensive copies instead (you can google this pattern)
-    public static double calculateIt(ArrayList<Double> numberArray,ArrayList<String> operations){
+    //done
+    public static double calculateIt(ArrayList<Double> numbers,ArrayList<String> opers){
+        ArrayList<Double> numberArray = new ArrayList<Double>(numbers);
+        ArrayList<String> operations = new ArrayList<String>(opers);
+
         double result=0;
 
         int size=operations.size();
+
         for (int i = 0; i <size ; i++){
             if (operations.get(i).equals("*")||operations.get(i).equals("/")){
                 double a=numberArray.get(i);
@@ -69,12 +78,17 @@ public class Calculator {
     public static void main(String[] args) {
 
         Calculator calculator =new Calculator();
-        calculator.getAndProcessTask();
+        try {
+            calculator.getAndProcessTask();}
+        catch (StringParser.WrongExpression e){
+            System.out.println("you've entered some malformed expression");
+
+        }
 
 
 
         //todo make it run until user want to exit. e.g. print "type task to calculate or exit to exit" after every result
-        // (((6+2*5)-(2*2-1))-2)*10
+        //done
 
 
 

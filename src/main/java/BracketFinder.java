@@ -6,13 +6,14 @@ import java.util.*;
 public class BracketFinder {
 
     //map "brackets" where K=position of'(', V=position of matching')'
-     HashMap<Integer, Integer> brackets = new HashMap<Integer, Integer>();
+     private HashMap<Integer, Integer> brackets = new HashMap<Integer, Integer>();
 
     public BracketFinder(String s){
         findAllBrackets(s);
     }
 
     //todo this method can be inlined without any harm =)
+    // WUT???
     public  void findAllBrackets(String s) {
         Stack<Integer> stack = new Stack();
 
@@ -28,5 +29,10 @@ public class BracketFinder {
     }
 
     //todo here create necessary methods for put and get from 'this.brackets' map. Field should be private
+    //done
+    public int getClosingBracket(int open){
+
+        return this.brackets.get(open);
+    }
 
 }

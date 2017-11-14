@@ -11,7 +11,7 @@ public class StringBuilder {
 
         if(!s.contains("(")){
             StringParser parser=new StringParser(s);
-            result+=Double.toString(Calculator.calculateIt(parser.numberArray, parser.operations));
+            result+=Double.toString(Calculator.calculateIt(parser.getNumberArray(), parser.getOperations()));
         }
 
 
@@ -20,7 +20,8 @@ public class StringBuilder {
                String inDaBraket=buildNoInnerBracketString(s);
                StringParser parser=new StringParser(inDaBraket);
                //todo again hide inner collections. delegate calls or make defensive copies
-               result+=Double.toString(Calculator.calculateIt(parser.numberArray, parser.operations));
+               //done
+               result+=Double.toString(Calculator.calculateIt(parser.getNumberArray(), parser.getOperations()));
         }
 
         return result;
@@ -39,9 +40,10 @@ public class StringBuilder {
                 i++;
             }
             if(i<s.length()-1&&s.charAt(i)=='('){
-                noBracketString+=buildStringInBrackets(s.substring(i+1, bracketFinder.brackets.get(i)));
+                noBracketString+=buildStringInBrackets(s.substring(i+1, bracketFinder.getClosingBracket(i)));
                 //todo redo like bracketFinder.getBracketWithIndex(i). Hide inner 'brackets' map
-                i=bracketFinder.brackets.get(i)+1;
+                //done
+                i=bracketFinder.getClosingBracket(i)+1;
             }
         }
 
