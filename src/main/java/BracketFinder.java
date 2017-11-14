@@ -12,8 +12,12 @@ public class BracketFinder {
         findAllBrackets(s);
     }
 
-    //todo this method can be inlined without any harm =)
-    // WUT???
+    //todo
+    // what you do in this method?
+    // you initialize brackets map by given string.
+    // So do you really need this method?
+    // Or maybe you can inline its logic into constructor
+    // also you can initialize brackets map there too
     public  void findAllBrackets(String s) {
         Stack<Integer> stack = new Stack();
 
@@ -28,10 +32,12 @@ public class BracketFinder {
         }
     }
 
-    //todo here create necessary methods for put and get from 'this.brackets' map. Field should be private
-    //done
     public int getClosingBracket(int open){
 
+        //todo
+        // if calc string was invalid e.g. (1+2 - you'll get here NPE
+        // because brackets.get(open) will return null and you return primitive int. unboxing null Integer to int cause NPE
+        // it is required to check brackets validity when you parse string for brackets
         return this.brackets.get(open);
     }
 

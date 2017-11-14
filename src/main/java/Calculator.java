@@ -19,6 +19,7 @@ public class Calculator {
                 e.printStackTrace();
             }
 
+            //todo. nice, but what if I enter some shit?
             if (expression.equals("e")) {
                 return;
             }
@@ -29,8 +30,6 @@ public class Calculator {
         }
     }
 
-    //todo do not change collections passed as method parameters. Use defensive copies instead (you can google this pattern)
-    //done
     public static double calculateIt(ArrayList<Double> numbers,ArrayList<String> opers){
         ArrayList<Double> numberArray = new ArrayList<Double>(numbers);
         ArrayList<String> operations = new ArrayList<String>(opers);
@@ -82,16 +81,7 @@ public class Calculator {
             calculator.getAndProcessTask();}
         catch (StringParser.WrongExpression e){
             System.out.println("you've entered some malformed expression");
-
         }
-
-
-
-        //todo make it run until user want to exit. e.g. print "type task to calculate or exit to exit" after every result
-        //done
-
-
-
     }
 
 }

@@ -3,6 +3,7 @@
  */
 public class StringBuilder {
 
+    //todo try to select all and press ctrl+alt+l =)
 
 
     public static String buildStringInBrackets(String s){
@@ -41,8 +42,6 @@ public class StringBuilder {
             }
             if(i<s.length()-1&&s.charAt(i)=='('){
                 noBracketString+=buildStringInBrackets(s.substring(i+1, bracketFinder.getClosingBracket(i)));
-                //todo redo like bracketFinder.getBracketWithIndex(i). Hide inner 'brackets' map
-                //done
                 i=bracketFinder.getClosingBracket(i)+1;
             }
         }
