@@ -14,11 +14,11 @@ public class BracketFinder {
         try {
             findAllBrackets(s);
         } catch (IOException e) {
-            System.out.println(" opening brakets don't match closing brackets");
+            System.out.println(" opening brakets don't match closing brackets.");
             throw new Error();
 
         } catch (EmptyStackException e) {
-            System.out.println(" opening brakets don't match closing brackets");
+            System.out.println(" opening brakets don't match closing brackets.");
             throw new Error();
 
         }
