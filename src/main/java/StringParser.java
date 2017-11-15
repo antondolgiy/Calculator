@@ -15,19 +15,24 @@ public class StringParser {
     private ArrayList<String> operations = new ArrayList();
 
     public ArrayList<Double> getNumberArray() {
+
         //defensive copy is also necessary here because when you populate your inner list,
         // anybody can do anything with it outside your class
-        return numberArray;
+        //return numberArray;
+        return new ArrayList<Double>(numberArray);
     }
+
 
     public ArrayList<String> getOperations() {
 
-        return operations;
+        //return operations;
+        return new ArrayList<String>(operations);
 
     }
 
     //todo Your StringParser class is broken
     //todo
+
     StringParser(String s) {
         parseString(s);
     }
@@ -36,14 +41,14 @@ public class StringParser {
     public void parseString(String s) {
         Pattern pattern = Pattern.compile("\\+|-|\\*|/");
         String[] numbers = pattern.split(s);
-        List<String> arlist = Arrays.asList(numbers); //todo try to make more informative names for your variables
 
-        //todo try to rearrange code to be aligned. also good practice is to use {} for every block (ifs, loops, etc.)
-        //I wanted to say, try to make code pretty. aligned and with brackets like this
+        List<String> arlist = Arrays.asList(numbers);
+
         for (String st : arlist) {
             if (!st.isEmpty()) {
                 numberArray.add(Double.valueOf(st));
             } else {
+
                 numberArray.add(null);
             }
         }
@@ -51,6 +56,7 @@ public class StringParser {
         for (int i = 0; i < s.length(); i++) {
             //todo show me how you can use 'switch' =)
 
+            /*
             if (s.charAt(i) == '+') {
                 operations.add("+");
             }
@@ -63,11 +69,32 @@ public class StringParser {
             if (s.charAt(i) == '*') {
                 operations.add("*");
             }
+            */
+
+            char x = s.charAt(i);
+            switch (x) {
+                case '+':
+                    operations.add("+");
+                    break;
+                case '-':
+                    operations.add("-");
+                    break;
+                case '/':
+                    operations.add("/");
+                    break;
+                case '*':
+                    operations.add("*");
+                    break;
+            }
+
+
         }
         // check for "8/-4 (is ok)" and "25/*6 (is not ok)" stuff
 
+
         // while it is correct to compare operation symbols with == here,
         // hope you understand what you are doing and somehow know about strings interns
+
         int size = numberArray.size();
         for (int i = 0; i < size; i++) {
             if (numberArray.get(i) == null && operations.get(i) == "-") {
@@ -79,6 +106,7 @@ public class StringParser {
             }
             if (numberArray.get(i) == null && operations.get(i) != "-") {
                 throw new WrongExpression();
+
             }
 
         }
