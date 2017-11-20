@@ -19,7 +19,7 @@ public class BracketFinder {
 
         } catch (EmptyStackException e) {
             System.out.println(" opening brakets don't match closing brackets.");
-            throw new Error();
+           throw new Error();
 
         }
     }
@@ -52,7 +52,7 @@ public class BracketFinder {
             }
         }
 
-        // if numberof'(' != numberof')' in the end, stack will either be not empty
+        // if numberof'(' != numberof')', in the end, stack will either be not empty
         // or it will try to pop element from empty stack
         if (!stack.empty()) {
             throw new IOException();

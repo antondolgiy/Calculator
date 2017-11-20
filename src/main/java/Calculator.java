@@ -37,6 +37,7 @@ public class Calculator {
              (it was easier just to instantiate unused bracketFinder,than to deal with
               all these nullpointer for "(8+1 " or numberformat for" 8+1)" exceptions )
              */
+
             try {
                 BracketFinder bracketFinder = new BracketFinder(expression);
             } catch (Error error) {
