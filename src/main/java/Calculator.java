@@ -6,6 +6,15 @@ import java.util.ArrayList;
 /**
  * Created by Anton on 26.10.2017.
  */
+
+/**
+ * Stas comments
+ * Separate runner and calculator logic.
+ * Calculator should have only one public method calculate.
+ * Runner should connect to console read line and return result
+ * Get rid of useless BracketFinder where you are doing iteration over string twice
+ * Get rid of StringBuilder. Use recursion when you find a opening bracket.
+ */
 public class Calculator {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -19,28 +28,13 @@ public class Calculator {
                 e.printStackTrace();
             }
 
-            //todo. nice, but what if I enter some shit?
-            //YEP.. I was thinking about it throwing NumberFormatException, but it was kinda "daaah... =\"...
-            // should I make some enumeration with '1-9' and '+-/*()'
-            // and check if each input String contains symbols !in this enumeration?
-            // I realy don't remember much about enumerations,
-            // but I believe there must be something like checking does some shit belong to enum, or doesn't
-            //like: fori(i<string.length){ if(string.charAt(i).notInDaEnumeration){sout"gtfo n-word!"}}
-
             if (expression.equals("e")) {
                 return;
             }
 
-
-            // check for brackets proper arrangement
-            /*
-             (it was easier just to instantiate unused bracketFinder,than to deal with
-              all these nullpointer for "(8+1 " or numberformat for" 8+1)" exceptions )
-             */
-
             try {
                 BracketFinder bracketFinder = new BracketFinder(expression);
-            } catch (Error error) {
+            } catch (Exception e) {
                 return;
             }
 
@@ -50,8 +44,7 @@ public class Calculator {
         }
     }
 
-
-    public static double calculateIt(ArrayList<Double> numbers,ArrayList<String> opers){
+    public static double calculateIt(ArrayList<Double> numbers, ArrayList<String> opers) {
 
         ArrayList<Double> numberArray = new ArrayList<Double>(numbers);
         ArrayList<String> operations = new ArrayList<String>(opers);
@@ -101,8 +94,6 @@ public class Calculator {
 
         Calculator calculator = new Calculator();
         try {
-
-
             calculator.getAndProcessTask();
         } catch (StringParser.WrongExpression e) {
             System.out.println("you've entered some malformed expression");
