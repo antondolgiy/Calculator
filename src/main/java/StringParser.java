@@ -34,26 +34,20 @@ public class StringParser {
             String[] numbers = pattern.split(s);
 
             List<String> arlist = Arrays.asList(numbers);
-
             for (String st : arlist) {
                 if (!st.isEmpty()) {
                     try {
                         Double d = Double.valueOf(st);
                         numberArray.add(d);
                     } catch (NumberFormatException e) {
-                        throw new NumberFormatException("wrong symbols instead of numbers or no open bracket " );
-
+                        throw new NumberFormatException("wrong symbols instead of numbers or no open bracket ");
                     }
-
-
                 } else {
-
                     numberArray.add(null);
                 }
             }
 
             for (int i = 0; i < s.length(); i++) {
-
                 char x = s.charAt(i);
                 switch (x) {
                     case '+':
@@ -84,17 +78,15 @@ public class StringParser {
                 }
                 if (numberArray.get(i) == null && !operations.get(i).equals("-")) {
                     throw new RuntimeException("operator is in wrong position");
-
                 }
 
                 if (numberArray.size() <= operations.size()) {
                     throw new RuntimeException("operator is in wrong position");
                 }
 
-                if(numberArray.size()==0){
+                if (numberArray.size() == 0) {
                     throw new RuntimeException("nothing to calculate");
                 }
-
             }
         } else {
             String noBracketString = "";
@@ -105,16 +97,13 @@ public class StringParser {
                     noBracketString += s.charAt(i);
                     i++;
                 }
-
                 if (i < s.length() - 1 && s.charAt(i) == '(') {
                     noBracketString += Calculator.calculateIt(s.substring(i + 1, bracketFinder.getClosingBracket(i)));
                     i = bracketFinder.getClosingBracket(i) + 1;
                 }
             }
             parseString(noBracketString);
-
         }
-
     }
 }
 
