@@ -54,22 +54,6 @@ public class StringParser {
         }
 
         for (int i = 0; i < s.length(); i++) {
-            //todo show me how you can use 'switch' =)
-
-            /*
-            if (s.charAt(i) == '+') {
-                operations.add("+");
-            }
-            if (s.charAt(i) == '-') {
-                operations.add("-");
-            }
-            if (s.charAt(i) == '/') {
-                operations.add("/");
-            }
-            if (s.charAt(i) == '*') {
-                operations.add("*");
-            }
-            */
 
             char x = s.charAt(i);
             switch (x) {
@@ -107,6 +91,9 @@ public class StringParser {
             if (numberArray.get(i) == null && operations.get(i) != "-") {
                 throw new WrongExpression();
 
+            }
+            if(numberArray.size()==operations.size()){
+                throw new WrongExpression();
             }
 
         }

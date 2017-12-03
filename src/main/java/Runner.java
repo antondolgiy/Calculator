@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 public class Runner {
     public static void main(String[] args) {
 
-        BufferedReader reader =new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         while (true) {
             System.out.println("type task to calculate or 'e' to exit");
             String expression = null;
@@ -22,13 +22,17 @@ public class Runner {
                 return;
             }
 
+            try {
+                StringParser stringParser = new StringParser(StringBuilder.buildNoInnerBracketString(expression));
+                System.out.println(stringParser.getNumberArray());
+                System.out.println(stringParser.getOperations());
+                double v = Calculator.calculateIt(stringParser.getNumberArray(), stringParser.getOperations());
+                System.out.println("RESULT:" + v);
+            } catch (StringParser.WrongExpression e) {
+                System.out.println("wrong ex");
+            }
 
-            StringParser stringParser = new StringParser(StringBuilder.buildNoInnerBracketString(expression));
-            double v = Calculator.calculateIt(stringParser.getNumberArray(), stringParser.getOperations());
-            System.out.println("RESULT:" + v);
         }
 
-
     }
-
 }

@@ -23,7 +23,7 @@ public class BracketFinder {
         }
     }
 
-    public void findAllBrackets(String s) throws IOException {
+    public void findAllBrackets(String s) throws IOException  {
         Stack<Integer> stack = new Stack();
         for (int j = 0; j < s.length(); j++) {
             if (s.charAt(j) == '(') {
