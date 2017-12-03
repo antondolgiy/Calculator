@@ -23,8 +23,6 @@ public class Runner {
             }
 
             try {
-
-                //(6+2)*((4+3)+12*(6-6/(2-7)+8)-6*2)*(8-3)+2
                 double v = Calculator.calculateIt(expression);
                 System.out.println("RESULT:" + v);
             } catch (NumberFormatException e) {

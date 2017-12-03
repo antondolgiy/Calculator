@@ -41,7 +41,7 @@ public class StringParser {
                         Double d = Double.valueOf(st);
                         numberArray.add(d);
                     } catch (NumberFormatException e) {
-                        throw new NumberFormatException("wrong symbols instead of numbers");
+                        throw new NumberFormatException("wrong symbols instead of numbers or no open bracket " );
 
                     }
 
