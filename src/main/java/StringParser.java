@@ -13,7 +13,7 @@ public class StringParser {
     public ArrayList<Double> getNumberArray() {
         return new ArrayList<Double>(numberArray);
     }
-    
+
     public ArrayList<String> getOperations() {
         return new ArrayList<String>(operations);
     }
@@ -75,11 +75,7 @@ public class StringParser {
                 }
 
                 if (numberArray.size() <= operations.size()) {
-                    throw new RuntimeException("operator is in wrong position");
-                }
-
-                if (numberArray.size() == 0) {
-                    throw new RuntimeException("nothing to calculate");
+                    throw new RuntimeException("operator is in wrong position!");
                 }
             }
         } else {
