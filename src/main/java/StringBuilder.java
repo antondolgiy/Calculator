@@ -12,12 +12,10 @@ public class StringBuilder {
         String result = "";
 
         if (!s.contains("(")) {
-           // StringParser parser = new StringParser(s);
             result += Double.toString(Calculator.calculateIt(s));
         } else {
             result += "";
             String inDaBraket = buildNoInnerBracketString(s);
-           // StringParser parser = new StringParser(inDaBraket);
             result += Double.toString(Calculator.calculateIt(inDaBraket));
         }
 

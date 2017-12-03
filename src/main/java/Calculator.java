@@ -63,6 +63,14 @@ public class Calculator {
         return result;
     }
 
+    public static double calculateItInDiffWay(String expression){
+        double result=0;
+
+
+
+        return result;
+    }
+
 
 
 

@@ -86,7 +86,8 @@ public class StringParser {
                 throw new RuntimeException("operator is in wrong position");
 
             }
-            if (numberArray.size() == operations.size()) {
+
+            if (numberArray.size() <= operations.size()) {
                 throw new RuntimeException("operator is in wrong position");
             }
 
