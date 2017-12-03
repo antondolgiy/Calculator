@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
 import java.util.ArrayList;
 
 /**
@@ -13,13 +11,13 @@ import java.util.ArrayList;
  * Calculator should have only one public method calculate.
  * Runner should connect to console read line and return result
  * Get rid of useless BracketFinder where you are doing iteration over string twice
- * Get rid of StringBuilder. Use recursion when you find a opening bracket.
+
  */
 public class Calculator {
 
 
     public static double calculateIt(String expression) {
-        StringParser stringParser = new StringParser(StringBuilder.buildNoInnerBracketString(expression));
+        StringParser stringParser = new StringParser(expression);
         ArrayList<Double> numberArray = stringParser.getNumberArray();
         ArrayList<String> operations = stringParser.getOperations();
 
@@ -62,16 +60,5 @@ public class Calculator {
 
         return result;
     }
-
-    public static double calculateItInDiffWay(String expression){
-        double result=0;
-
-
-
-        return result;
-    }
-
-
-
 
 }
