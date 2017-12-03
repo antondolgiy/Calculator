@@ -28,7 +28,7 @@ public class StringParser {
     }
 
 
-    public void parseString(String s) throws NumberFormatException {
+    private void parseString(String s) throws NumberFormatException {
         if (!s.contains("(")) {
             Pattern pattern = Pattern.compile("\\+|-|\\*|/");
             String[] numbers = pattern.split(s);
@@ -91,6 +91,10 @@ public class StringParser {
                     throw new RuntimeException("operator is in wrong position");
                 }
 
+                if(numberArray.size()==0){
+                    throw new RuntimeException("nothing to calculate");
+                }
+
             }
         } else {
             String noBracketString = "";
@@ -105,7 +109,6 @@ public class StringParser {
                 if (i < s.length() - 1 && s.charAt(i) == '(') {
                     noBracketString += Calculator.calculateIt(s.substring(i + 1, bracketFinder.getClosingBracket(i)));
                     i = bracketFinder.getClosingBracket(i) + 1;
-
                 }
             }
             parseString(noBracketString);
