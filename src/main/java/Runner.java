@@ -23,13 +23,12 @@ public class Runner {
             }
 
             try {
-                StringParser stringParser = new StringParser(StringBuilder.buildNoInnerBracketString(expression));
-                System.out.println(stringParser.getNumberArray());
-                System.out.println(stringParser.getOperations());
-                double v = Calculator.calculateIt(stringParser.getNumberArray(), stringParser.getOperations());
+                double v = Calculator.calculateIt(expression);
                 System.out.println("RESULT:" + v);
-            } catch (StringParser.WrongExpression e) {
-                System.out.println("wrong ex");
+            } catch (NumberFormatException e) {
+                System.out.println(e.getMessage());
+            } catch (RuntimeException e) {
+                System.out.println(e.getMessage());
             }
 
         }

@@ -18,10 +18,10 @@ import java.util.ArrayList;
 public class Calculator {
 
 
-    public static double calculateIt(ArrayList<Double> numbers, ArrayList<String> opers) {
-
-        ArrayList<Double> numberArray = new ArrayList<Double>(numbers);
-        ArrayList<String> operations = new ArrayList<String>(opers);
+    public static double calculateIt(String expression) {
+        StringParser stringParser = new StringParser(StringBuilder.buildNoInnerBracketString(expression));
+        ArrayList<Double> numberArray = stringParser.getNumberArray();
+        ArrayList<String> operations = stringParser.getOperations();
 
         double result = 0;
 

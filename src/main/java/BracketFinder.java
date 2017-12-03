@@ -15,10 +15,8 @@ public class BracketFinder {
         try {
             findAllBrackets(s);
         } catch (IOException e) {
-            System.out.println(" opening brakets don't match closing brackets.");
             throw new RuntimeException(" opening brakets don't match closing brackets.");
         } catch (EmptyStackException e) {
-            System.out.println(" opening brakets don't match closing brackets.");
             throw new RuntimeException(" opening brakets don't match closing brackets.");
         }
     }

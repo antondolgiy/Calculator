@@ -12,15 +12,13 @@ public class StringBuilder {
         String result = "";
 
         if (!s.contains("(")) {
-            StringParser parser = new StringParser(s);
-            result += Double.toString(Calculator.calculateIt(parser.getNumberArray(), parser.getOperations()));
+           // StringParser parser = new StringParser(s);
+            result += Double.toString(Calculator.calculateIt(s));
         } else {
             result += "";
             String inDaBraket = buildNoInnerBracketString(s);
-            StringParser parser = new StringParser(inDaBraket);
-            //todo again hide inner collections. delegate calls or make defensive copies
-            //done
-            result += Double.toString(Calculator.calculateIt(parser.getNumberArray(), parser.getOperations()));
+           // StringParser parser = new StringParser(inDaBraket);
+            result += Double.toString(Calculator.calculateIt(inDaBraket));
         }
 
         return result;
