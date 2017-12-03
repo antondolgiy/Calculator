@@ -11,22 +11,16 @@ public class StringParser {
     private ArrayList<String> operations = new ArrayList();
 
     public ArrayList<Double> getNumberArray() {
-
         return new ArrayList<Double>(numberArray);
     }
-
-
+    
     public ArrayList<String> getOperations() {
-
-
         return new ArrayList<String>(operations);
-
     }
 
     StringParser(String s) {
         parseString(s);
     }
-
 
     private void parseString(String s) throws NumberFormatException {
         if (!s.contains("(")) {
