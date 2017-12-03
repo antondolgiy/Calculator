@@ -16,33 +16,7 @@ import java.util.ArrayList;
  * Get rid of StringBuilder. Use recursion when you find a opening bracket.
  */
 public class Calculator {
-    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-    void getAndProcessTask() {
-        while (true) {
-            System.out.println("type task to calculate or 'e' to exit");
-            String expression = null;
-            try {
-                expression = reader.readLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            if (expression.equals("e")) {
-                return;
-            }
-
-            try {
-                BracketFinder bracketFinder = new BracketFinder(expression);
-            } catch (Exception e) {
-                return;
-            }
-
-            StringParser stringParser = new StringParser(StringBuilder.buildNoInnerBracketString(expression));
-            double v = calculateIt(stringParser.getNumberArray(), stringParser.getOperations());
-            System.out.println("RESULT:" + v);
-        }
-    }
 
     public static double calculateIt(ArrayList<Double> numbers, ArrayList<String> opers) {
 
@@ -90,15 +64,6 @@ public class Calculator {
     }
 
 
-    public static void main(String[] args) {
 
-        Calculator calculator = new Calculator();
-        try {
-            calculator.getAndProcessTask();
-        } catch (StringParser.WrongExpression e) {
-            System.out.println("you've entered some malformed expression");
-        }
-
-    }
 
 }
