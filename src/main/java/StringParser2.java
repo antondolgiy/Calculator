@@ -64,9 +64,7 @@ public class StringParser2 {
         }
     }
 
-    public static void main(String[] args) {
-        StringParser2
-    }
+   
 
 
 }
