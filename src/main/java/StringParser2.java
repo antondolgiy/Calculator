@@ -20,9 +20,7 @@ public class StringParser2 {
         parseString(s);
     }
 
-    public void parseString(String daString) {
-
-        String string = daString;
+    public void parseString(String string) {
 
         for (int i = 0; i < string.length(); i++) {
             if (string.charAt(i) != '(') {
@@ -56,15 +54,15 @@ public class StringParser2 {
                         throw new RuntimeException("wrong symbols instead of numbers or no open bracket ");
                     }
                     i = closing + 1;
-                    if (i < string.length()) operations.add(String.valueOf(string.charAt(i)));
-                } else {
+                    if(i==string.length()-1){
+                        throw new RuntimeException("wrong position of operator ");}
+                    else if (i < string.length()&&i!=string.length()-1) operations.add(String.valueOf(string.charAt(i)));
+                }
+                else {
                     throw new RuntimeException("looks like brakets don't mach");
                 }
             }
         }
     }
-
-   
-
-
+    
 }
