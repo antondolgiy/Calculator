@@ -17,7 +17,7 @@ public class Calculator {
 
 
     public static double calculateIt(String expression) {
-        StringParser stringParser = new StringParser(expression);
+        StringParser2 stringParser = new StringParser2(expression);
         ArrayList<Double> numberArray = stringParser.getNumberArray();
         ArrayList<String> operations = stringParser.getOperations();
 
