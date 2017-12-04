@@ -80,7 +80,7 @@ public class StringParser {
             }
         } else {
             String noBracketString = "";
-            BracketFinder bracketFinder = new BracketFinder(s);
+
             int i = 0;
             while (i < s.length()) {
                 if (s.charAt(i) != '(') {
@@ -88,8 +88,25 @@ public class StringParser {
                     i++;
                 }
                 if (i < s.length() - 1 && s.charAt(i) == '(') {
-                    noBracketString += Calculator.calculateIt(s.substring(i + 1, bracketFinder.getClosingBracket(i)));
-                    i = bracketFinder.getClosingBracket(i) + 1;
+                    int openingBracket = i;
+                    int closingBracket = 0;
+                    int match = 1;
+
+                    for (int j = s.length() - 1; j > i; j--) {
+                        if (s.charAt(j) == ')') {
+                            if (match > 0) closingBracket = j;
+                            match--;
+                        }
+                        if (s.charAt(j) == '(') {
+                            match++;
+                        }
+                    }
+                    if (match == 0) {
+                        noBracketString += Calculator.calculateIt(s.substring(openingBracket + 1, closingBracket));
+                    } else {
+                        throw new RuntimeException("looks like brakets don't mach");
+                    }
+                    i = closingBracket + 1;
                 }
             }
             parseString(noBracketString);

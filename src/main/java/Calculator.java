@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * Separate runner and calculator logic.
  * Calculator should have only one public method calculate.
  * Runner should connect to console read line and return result
- * Get rid of useless BracketFinder where you are doing iteration over string twice
+
 
  */
 public class Calculator {
