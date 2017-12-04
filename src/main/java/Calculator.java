@@ -4,15 +4,6 @@ import java.util.ArrayList;
 /**
  * Created by Anton on 26.10.2017.
  */
-
-/**
- * Stas comments
- * Separate runner and calculator logic.
- * Calculator should have only one public method calculate.
- * Runner should connect to console read line and return result
-
-
- */
 public class Calculator {
 
 
