@@ -16,43 +16,33 @@ public class Calculator {
 
         int size = operations.size();
 
-                for (int i = 0; i < size; i++) {
-                    if (operations.get(i).equals("*") || operations.get(i).equals("/")) {
-                        double a = numberArray.get(i);
-                        double b = numberArray.get(i + 1);
-                        double c = 0;
-                        if (operations.get(i).equals("*")) {
-                            c = a * b;
-                        } else {
-                            c = a / b;
-                        }
-
-                        numberArray.set(i, c);
-                        numberArray.remove(i + 1);
-                        operations.remove(i);
-                        size--;
-                        i--;
-
-
-                    }
-
-                }
-                result = numberArray.get(0);
-                for (int i = 0; i < operations.size(); i++) {
-                    if (operations.get(i).equals("+")) {
-                        result = result + numberArray.get(i + 1);
-                    }
-
-                    if (operations.get(i).equals("-")) {
-                        result = result - numberArray.get(i + 1);
-                    }
-
+        for (int i = 0; i < size; i++) {
+            if (operations.get(i).equals("*") || operations.get(i).equals("/")) {
+                double a = numberArray.get(i);
+                double b = numberArray.get(i + 1);
+                double c = 0;
+                if (operations.get(i).equals("*")) {
+                    c = a * b;
+                } else {
+                    c = a / b;
                 }
 
-                return result;
-
+                numberArray.set(i, c);
+                numberArray.remove(i + 1);
+                operations.remove(i);
+                size--;
+                i--;
             }
-
-
-
+        }
+        result = numberArray.get(0);
+        for (int i = 0; i < operations.size(); i++) {
+            if (operations.get(i).equals("+")) {
+                result = result + numberArray.get(i + 1);
+            }
+            if (operations.get(i).equals("-")) {
+                result = result - numberArray.get(i + 1);
+            }
+        }
+        return result;
+    }
 }

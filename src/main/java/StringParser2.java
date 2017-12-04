@@ -5,6 +5,7 @@ import java.util.ArrayList;
  */
 public class StringParser2 {
 
+
     private ArrayList<Double> numberArray = new ArrayList();
     private ArrayList<String> operations = new ArrayList();
 
@@ -64,6 +65,8 @@ public class StringParser2 {
                     i = closingBracket + 1;
                     if (i == string.length() - 1) {
                         throw new RuntimeException("expression should not end with operator ");
+                    } else if (i<string.length()-1&&string.charAt(i) != '*' && string.charAt(i) != '/' && string.charAt(i) != '+' && string.charAt(i) != '-') {
+                        throw new RuntimeException("wrong uppend of brackets  ");
                     } else if (i < string.length() && i != string.length() - 1)
                         operations.add(String.valueOf(string.charAt(i)));
                 } else {
