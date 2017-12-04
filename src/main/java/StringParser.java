@@ -80,8 +80,8 @@ public class StringParser {
             }
         } else {
             String noBracketString = "";
-
             int i = 0;
+
             while (i < s.length()) {
                 if (s.charAt(i) != '(') {
                     noBracketString += s.charAt(i);
