@@ -49,7 +49,7 @@ public class StringParser2 {
                 int match = 1;
                 for (int j = string.length() - 1; j > i; j--) {
                     if (string.charAt(j) == ')') {
-                        if (match > 0) closingBracket = j;
+                        if (match == 1) closingBracket = j;
                         match--;
                     }
                     if (string.charAt(j) == '(') {
