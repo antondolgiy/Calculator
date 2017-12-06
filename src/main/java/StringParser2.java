@@ -37,7 +37,9 @@ public class StringParser2 {
                     if (i == string.length() - 1) {
                         throw new RuntimeException("expression should not end with operator! ");
                     }
-                    if (i < string.length() - 1) operations.add(String.valueOf(string.charAt(i)));
+                    if (i < string.length() - 1) {
+                        operations.add(String.valueOf(string.charAt(i)));
+                    }
 
                 } else {
                     int openBracket = i;
@@ -53,7 +55,7 @@ public class StringParser2 {
                         }
                     }
                     if (match == 0) {
-                        if(closingBracket==openBracket+1){
+                        if (closingBracket == openBracket + 1) {
                             throw new RuntimeException("nothing is brackets!");
                         }
                         try {
@@ -80,14 +82,16 @@ public class StringParser2 {
                         i++;
                     }
                     try {
-                        numberArray.add(-1*Double.valueOf(string.substring(start, i)));
+                        numberArray.add(-1 * Double.valueOf(string.substring(start, i)));
                     } catch (NumberFormatException e) {
                         throw new RuntimeException("wrong symbols instead of numbers or no open bracket ");
                     }
                     if (i == string.length() - 1) {
                         throw new RuntimeException("expression should not end with operator! ");
                     }
-                    if (i < string.length() - 1) operations.add(String.valueOf(string.charAt(i)));
+                    if (i < string.length() - 1) {
+                        operations.add(String.valueOf(string.charAt(i)));
+                    }
 
                 } else {
                     int openBracket = i;
@@ -103,11 +107,11 @@ public class StringParser2 {
                         }
                     }
                     if (match == 0) {
-                        if(closingBracket==openBracket+1){
+                        if (closingBracket == openBracket + 1) {
                             throw new RuntimeException("nothing is brackets!");
                         }
                         try {
-                            numberArray.add(-1*Calculator.calculateIt(string.substring(openBracket + 1, closingBracket)));
+                            numberArray.add(-1 * Calculator.calculateIt(string.substring(openBracket + 1, closingBracket)));
                         } catch (NumberFormatException e) {
                             throw new RuntimeException("wrong symbols instead of numbers or no open bracket ");
                         }
@@ -116,8 +120,9 @@ public class StringParser2 {
                             throw new RuntimeException("expression should not end with operator ");
                         } else if (i < string.length() - 1 && string.charAt(i) != '*' && string.charAt(i) != '/' && string.charAt(i) != '+' && string.charAt(i) != '-') {
                             throw new RuntimeException("wrong uppend of brackets  ");
-                        } else if (i < string.length() && i != string.length() - 1)
+                        } else if (i < string.length() && i != string.length() - 1) {
                             operations.add(String.valueOf(string.charAt(i)));
+                        }
                     } else {
                         throw new RuntimeException("looks like brakets don't mach");
                     }
