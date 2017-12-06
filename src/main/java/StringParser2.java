@@ -68,8 +68,9 @@ public class StringParser2 {
                             throw new RuntimeException("expression should not end with operator ");
                         } else if (i < string.length() - 1 && string.charAt(i) != '*' && string.charAt(i) != '/' && string.charAt(i) != '+' && string.charAt(i) != '-') {
                             throw new RuntimeException("wrong uppend of brackets  ");
-                        } else if (i < string.length() && i != string.length() - 1)
+                        } else if (i < string.length() - 1) {
                             operations.add(String.valueOf(string.charAt(i)));
+                        }
                     } else {
                         throw new RuntimeException("looks like brakets don't mach");
                     }
