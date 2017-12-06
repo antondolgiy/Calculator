@@ -108,7 +108,7 @@ public class StringParser2 {
                     }
                     if (match == 0) {
                         if (closingBracket == openBracket + 1) {
-                            throw new RuntimeException("nothing is brackets!");
+                            throw new RuntimeException("there's nothing in brackets!");
                         }
                         try {
                             numberArray.add(-1 * Calculator.calculateIt(string.substring(openBracket + 1, closingBracket)));
@@ -120,7 +120,7 @@ public class StringParser2 {
                             throw new RuntimeException("expression should not end with operator ");
                         } else if (i < string.length() - 1 && string.charAt(i) != '*' && string.charAt(i) != '/' && string.charAt(i) != '+' && string.charAt(i) != '-') {
                             throw new RuntimeException("wrong uppend of brackets  ");
-                        } else if (i < string.length() && i != string.length() - 1) {
+                        } else if (i < string.length() - 1) {
                             operations.add(String.valueOf(string.charAt(i)));
                         }
                     } else {
