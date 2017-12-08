@@ -52,6 +52,9 @@ public class StringParser2 {
                         }
                         if (string.charAt(j) == '(') {
                             match++;
+                            if(match>1){
+                                throw new RuntimeException("looks like brakets don't mach");
+                            }
                         }
                     }
                     if (match == 0) {
