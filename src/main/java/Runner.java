@@ -30,8 +30,6 @@ public class Runner {
             } catch (RuntimeException e) {
                 System.out.println(e.getMessage());
             }
-
         }
-
     }
 }
